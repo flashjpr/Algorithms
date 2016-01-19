@@ -83,6 +83,25 @@ void hashType::PrintTable(){
     }
 }
 
+void hashType::PrintItemsInIndex(int index){
+    //point to the first item in index
+    item* pointer = HashTable[index];
+    
+    if(pointer -> name == "empty") cout<< "The bucket #"<< index <<" is empty.";
+    else{
+        cout << "The bucket "<< index <<" has the items:\n ";
+        
+        while (pointer != NULL) {
+            cout << "____________________\n";
+            cout << pointer -> name << endl;
+            cout << pointer -> drink << endl;
+            cout << "____________________\n";
+            
+            pointer = pointer -> next;
+        }
+    }
+}
+
 int hashType::Hashing(string key)
 {
     int hash = 0, index;

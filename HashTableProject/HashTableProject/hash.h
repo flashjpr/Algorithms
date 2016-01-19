@@ -38,6 +38,7 @@ public :
     void AddItem(string name, string drink);
     int NumberOfItemsInIndex(int index);
     void PrintTable();
+    void PrintItemsInIndex(int index);
 };
 
 #endif /* Header_h */

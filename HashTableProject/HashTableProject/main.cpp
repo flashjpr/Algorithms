@@ -17,18 +17,18 @@ int main(int argc, const char * argv[]) {
 
     hashType Hashy;
 
-    Hashy.AddItem("Alex", "part1");
-    Hashy.AddItem("Alex2", "part2");
-    Hashy.AddItem("Alex3", "part3");
-    Hashy.AddItem("Alex4", "part4");
-    Hashy.AddItem("Alex5", "part5");
-    Hashy.AddItem("Alex6", "part6");
-    Hashy.AddItem("Alex7", "part7");
-    Hashy.AddItem("Alex8", "part8");
-    Hashy.AddItem("Alex9", "part9");
-    Hashy.AddItem("Alex10", "part10");
-    
-    Hashy.PrintTable();
-    
+    Hashy.AddItem("Alex", "drink1");
+    Hashy.AddItem("Alex2", "drink2");
+    Hashy.AddItem("Alex3", "drink3");
+    Hashy.AddItem("Alex4", "drink4");
+    Hashy.AddItem("Alex5", "drink5");
+    Hashy.AddItem("Alex6", "Mojito6");
+    Hashy.AddItem("Alex7", "Cuba libre");
+    Hashy.AddItem("BBBBB", "Whiskey");
+    Hashy.AddItem("Alex9", "Champagne");
+    Hashy.AddItem("Alex10", "Wine");
+
+    Hashy.PrintItemsInIndex(1);
+//    Hashy.PrintTable();
     return 0;
 }
