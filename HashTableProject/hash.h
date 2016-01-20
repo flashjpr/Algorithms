@@ -39,7 +39,7 @@ public :
     int NumberOfItemsInIndex(int index);
     void PrintTable();
     void PrintItemsInIndex(int index);
-    
+    void SearchDrink(string name);
 };
 
 #endif /* Header_h */

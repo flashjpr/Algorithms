@@ -118,3 +118,28 @@ int hashType::Hashing(string key)
     
     return index;
 }
+
+void hashType::SearchDrink(string name){
+    //name is the key; pass the key and search its bucket
+    int bucket = Hashing(name);
+    
+    bool foundName = false;
+    string drink;
+    
+    item* pointer = HashTable[bucket];
+    
+    //as long as we point to something
+    while (pointer != NULL) {
+        if(pointer -> name == name){
+            foundName = true;
+            drink = pointer -> drink;
+        }
+        //keep moving the pointer forward untill go through all the list
+        pointer = pointer -> next;
+    }//while
+    
+    if (foundName == true)
+        cout << "Favourite drink = " << drink << endl;
+    else
+        cout << name << " 's information was not found in the HashTable" << endl;
+}
