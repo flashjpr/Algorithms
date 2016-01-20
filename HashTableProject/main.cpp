@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
     Hashy.AddItem("Alex9", "Champagne");
     Hashy.AddItem("Alex10", "Wine");
 
-    Hashy.PrintItemsInIndex(1);
-//    Hashy.PrintTable();
+//    Hashy.PrintItemsInIndex(1);
+    Hashy.PrintTable();
     return 0;
 }

@@ -108,7 +108,8 @@ int hashType::Hashing(string key)
     
     //for each character of key, transform it to an integer and save in var hash
     for(int i = 0; i< key.length();i++){
-        hash = hash + (int)key[i];
+        //tried some different ways of computing the hash function
+        hash = (hash + (int)key[i]) * 17;
     }
 
     //deal with out of table size keys
