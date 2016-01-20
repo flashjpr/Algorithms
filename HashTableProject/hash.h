@@ -18,7 +18,7 @@ using namespace std;
 class hashType{
     
 private:
-    static const int tableSize = 40;
+    static const int tableSize = 4;
     
     struct item{
         string name;
@@ -40,6 +40,7 @@ public :
     void PrintTable();
     void PrintItemsInIndex(int index);
     void SearchDrink(string name);
+    void RemoveItem(string name);
 };
 
 #endif /* Header_h */

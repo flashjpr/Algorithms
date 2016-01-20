@@ -43,17 +43,30 @@ int main(int argc, const char * argv[]) {
     Hashy.AddItem("Just", "Sampan");
     Hashy.AddItem("Paul", "Wine");
 
-//    Hashy.PrintItemsInIndex(1);
+    Hashy.PrintItemsInIndex(3);
 //    Hashy.PrintTable();
- 
+    
     while (name != "exit") {
-        cout << "Search for ";
+        cout << "Remove ";
         cin >> name;
         
         if (name != "exit") {
-            Hashy.SearchDrink(name);
+            Hashy.RemoveItem(name);
         }
     }
+    
+    Hashy.PrintItemsInIndex(3);
+    
+//    Hashy.PrintTable();
+ 
+//    while (name != "exit") {
+//        cout << "Search for ";
+//        cin >> name;
+//        
+//        if (name != "exit") {
+//            Hashy.SearchDrink(name);
+//        }
+//    }
     
     return 0;
 }

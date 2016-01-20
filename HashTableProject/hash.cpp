@@ -143,3 +143,83 @@ void hashType::SearchDrink(string name){
     else
         cout << name << " 's information was not found in the HashTable" << endl;
 }
+
+void hashType::RemoveItem(string name){
+    //hash value of the name passing in the remove item function
+    int bucket = Hashing(name);
+    
+    
+    item* deletePointer;
+    item* pointer1;//
+    item* pointer2;//
+    
+    //Case 0: bucket is empty
+    if (HashTable[bucket] -> name == "empty" && HashTable[bucket] -> drink == "empty") {
+        cout << name << " was not found in the HashTable\n";
+    }
+    
+    
+    //Case 1: only 1 item contained in bucket
+    //      : that item has matching name
+    else if (HashTable[bucket] -> name == name && HashTable[bucket] -> next == NULL){
+        
+        //make it default value | same as deleting but we don t want to delete it here
+        HashTable[bucket] -> name = "empty";
+        HashTable[bucket] -> drink = "empty";
+        
+        cout << name << " was removed from the HashTable";
+    }
+    
+    
+    //Case 2: match in the first item(in bucket) but there are additional items in the bucket
+    else if(HashTable[bucket] -> name == name){
+        //point to the very first item
+        deletePointer = HashTable[bucket];
+        
+        //point to the new item in the list
+        HashTable[bucket] = HashTable[bucket]-> next;
+        
+        delete deletePointer;
+        
+        cout << name << " was removed from the HashTable";
+    }
+    
+    //Case 3: bucket is not empty, but first item is not a match
+    
+    else {
+        //"pointer1" is always 1 step ahead of "pointer2"
+        //make p2 trail 1 item behind p1
+        //stop when we find a match or reach the end
+        pointer1 = HashTable[bucket] -> next;
+        pointer2 = HashTable[bucket];
+        
+        while (pointer1 != NULL && pointer1 -> name != name) {
+            //advance p1 and p2
+            pointer2 = pointer1;
+            pointer1 = pointer1 -> next;
+        }
+        //  Case 3.1: no match found
+        if(pointer1 == NULL)    cout << name << " was not found in the HashTable\n";
+
+        //  Case 3.2: found a match
+        else{
+            
+            deletePointer = pointer1;
+            pointer1 = pointer1 -> next;
+            pointer2 -> next = pointer1;
+            
+            delete deletePointer;
+            cout << name << " was removed from the HashTable";
+        }//else
+    }
+}
+
+
+
+
+
+
+
+
+
+
