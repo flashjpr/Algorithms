@@ -14,6 +14,21 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 
-    cout<< "sadada";
+    int SomeKeyValues[16] = {50,76,21,4,32,64,15,52,14,100,83,2,3,70,87,80};
+    
+    BST tree;
+    
+    cout << "Outputin the tree in order\nBefore adding numbers\n";
+    
+    tree.PrintInOrder();
+    
+    for (int i = 0; i < 16; i++) {
+        tree.AddLeaf(SomeKeyValues[i]) ;
+    }
+    cout << endl;
+    
+    cout << "Outputin the tree in order\nAfter numbers have been added\n";
+    tree.PrintInOrder();
+    
     return 0;
 }

@@ -41,7 +41,7 @@ void BST::AddLeafPrivate(int key, node* Ptr){
         root = CreateLeaf(key);
     //else check if key is < current key
     else if(key < Ptr -> key){
-        //if so, call recursively the AddLeafPrivate method to go down - left the tree
+        //if we point to smth, recursively try again
         if (Ptr -> left != NULL) {
             AddLeafPrivate(key, Ptr -> left);
         }
@@ -50,14 +50,50 @@ void BST::AddLeafPrivate(int key, node* Ptr){
         }
     }
     else if(key > Ptr -> key){
-        
+        //if we point to smth, recursively try again
         if (Ptr -> right != NULL) {
-            AddLeafPrivate(key, Ptr -> left);
+            AddLeafPrivate(key, Ptr -> right);
         }
         else{
             Ptr -> right = CreateLeaf(key);
         }
     }
     //key is equal to the one which we want to add
-    else    cout << "The key " << key << " is already in the tree\n";
+    else {
+        cout << "The key " << key << " is already in the tree\n";
+    }
 }
+
+void BST::PrintInOrder(){
+    PrintInOrderPrivate(root);
+}
+
+void BST::PrintInOrderPrivate(node* Ptr){
+    
+    if (root != NULL) {
+        //if possible, go left
+        if(Ptr -> left != NULL){
+            PrintInOrderPrivate(Ptr -> left);
+        }
+        cout << Ptr -> key << " ";
+        //if possible go right
+        if (Ptr -> right != NULL) {
+            PrintInOrderPrivate(Ptr -> right);
+        }
+    }else{
+        cout << "Empty tree\n";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
