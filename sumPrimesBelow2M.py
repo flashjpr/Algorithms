@@ -8,4 +8,4 @@ for i in range (2, int(len(sieve) ** 0.5) + 1):
     if sieve[i] : sign(sieve, i)
 
 print sum(i for i in range(2, len(sieve)) 
-	if sieve[i])
+	if sieve[i] )
