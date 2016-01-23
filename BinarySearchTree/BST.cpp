@@ -147,6 +147,79 @@ int BST::FindSmallestPrivate(node* Ptr){
     }
 }
 
+void BST::RemoveNode(int key){
+    //call the private function and start at the root(as a parent)
+    return RemoveNodePrivate(key, root);
+}
+
+void BST::RemoveNodePrivate(int key, node* parent){
+
+    if(root != NULL){
+        if(root -> key == key)  RemoveRootNode();
+        else{
+            //look at the left child:
+            if (key < parent -> key && parent-> left != NULL) {
+                
+                parent -> left -> key == key ?
+                RemoveMatch(parent, parent -> left, true):
+                //recursively call the RemoveNodePrivate with new parent = left node
+                RemoveNodePrivate(key, parent -> left);
+            }else if (key > parent -> key && parent-> right != NULL) {
+                
+                parent -> right -> key == key ?
+                RemoveMatch(parent, parent -> right, false):
+                //we need to move to the right
+                RemoveNodePrivate(key, parent -> right);
+            }else   cout << "Key " << key << " is not found in the tree";
+        }
+    }else   cout << "Tree is empty\n";
+}
+
+void BST::RemoveRootNode(){
+    
+    if (root != NULL) {
+        node* deletePointer = root;
+        int rootKey = root -> key;
+        int smallestInRightSubtree;
+        
+        //case 0: 0 children
+        if(root -> left == NULL && root -> right == NULL){
+            root = NULL;
+            delete deletePointer;
+        }//case 1: 1 root has a child
+        else if (root -> left == NULL && root -> right != NULL){
+            
+            //case 1.1 child is attached to root's right side
+            root = root -> right;
+            
+            deletePointer -> right = NULL;//completely disconect the node from the tree
+            delete deletePointer;
+        
+            cout << "The root node with key " << rootKey << " was deleted. " <<
+                    "The new root contains key " << root -> key << endl;
+        }//case 1:  child has a child
+        else if (root -> left != NULL && root -> right == NULL){
+            
+            //case 1.2 child is attached to rooot's right side
+            root = root -> left;
+            
+            deletePointer -> left = NULL;//completely disconect the node from the tree
+            delete deletePointer;
+            
+            cout << "The root node with key " << rootKey << " was deleted. " <<
+            "The new root contains key " << root -> key << endl;
+        }
+        //case 2 : root 2 children
+        else{
+            smallestInRightSubtree = FindSmallestPrivate(root -> right);
+            RemoveNodePrivate(smallestInRightSubtree, root);
+            root -> key = smallestInRightSubtree;
+            cout << "The root key with key " << rootKey << " was replaced by the key :" << root -> key << endl;
+        }
+    }else{
+        cout << "Tree is already empty. Cannot delete the root";
+    }
+}
 
 
 
