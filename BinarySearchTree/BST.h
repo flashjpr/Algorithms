@@ -32,6 +32,8 @@ public:
     void AddLeaf(int key);
     void PrintInOrder();
     node* ReturnNode(int key);
+    int ReturnRootKey();
+    void PrintChildren(int key);
 
 };
 

@@ -103,6 +103,29 @@ BST::node* BST::ReturnNodePrivate(int key,node* Ptr){
     }else return NULL;
 }
 
+int BST::ReturnRootKey(){
+    if (root != NULL)
+        return root -> key;
+    else
+        return -1; // return a negative number, because we have only positive numbers in the BT
+}
+
+void BST::PrintChildren(int key){
+    node* Ptr = ReturnNode(key);
+    
+    if (Ptr != NULL) {
+        cout << "Parent node = " << Ptr -> key << endl;
+        
+        Ptr -> left == NULL ?
+        cout << "Left child is NULL\n" :
+        cout << "Left child is " << Ptr -> left -> key << endl;
+        
+        Ptr -> right == NULL ?
+        cout << "Right child is NULL\n" :
+        cout << "Right child is " << Ptr -> right -> key << endl;
+        
+    }else cout << "Key " << key << " is not in the tree\n";
+}
 
 
 
