@@ -221,6 +221,56 @@ void BST::RemoveRootNode(){
     }
 }
 
+void BST::RemoveMatch(node* parent, node* match, bool left){
+    if (root != NULL) {
+        node* deletePointer;
+        int matchKey = match -> key;
+        int smallestInRightSubtree;
+        
+        //case 0 - matching node has 2 children
+        if (match -> left == NULL && match -> right == NULL) {
+            deletePointer = match;
+            
+            left == true ?
+            parent -> left = NULL:
+            parent -> right = NULL;
+            
+            delete deletePointer;
+            cout << "Node with key : " << matchKey << " has been deleted";
+        }
+        //case 1 - 1 child
+        else if( match -> left == NULL && match -> right != NULL){
+            
+            left == true ?
+            parent -> left = match -> right :
+            parent -> right = match -> right;
+            
+            match -> right = NULL;//disconnect matching node from the tree
+            deletePointer =  match;
+            delete deletePointer;
+            cout << "Node with key : " << matchKey << " has been deleted";
+        }else if( match -> left != NULL && match -> right == NULL){
+            
+            left == true ?
+            parent -> left = match -> left :
+            parent -> right = match -> left;
+            
+            match -> left = NULL;//disconnect matching node from the tree
+            deletePointer =  match;
+            delete deletePointer;
+            cout << "Node with key : " << matchKey << " has been deleted";
+        }
+        //case 2 - 2 children
+        else{
+            smallestInRightSubtree = FindSmallestPrivate(match -> right);
+            RemoveNodePrivate(smallestInRightSubtree, match);
+            //overwrite the key of the node to be deleted to the smallestInRightSubtree, and delete that node
+            match -> key = smallestInRightSubtree;
+        }
+    }else{
+        cout << "Can't remove match because tree is empty.";
+    }
+}
 
 
 

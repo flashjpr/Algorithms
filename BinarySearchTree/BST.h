@@ -28,6 +28,8 @@ private:
     int FindSmallestPrivate(node* Ptr);
     void RemoveNodePrivate(int key, node* parent);
     void RemoveRootNode();
+    //bool-indicate relationship between parent and matching node
+    void RemoveMatch(node* parent, node* match, bool left);
 
 public:
     
