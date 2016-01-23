@@ -30,14 +30,18 @@ private:
     void RemoveRootNode();
     //bool-indicate relationship between parent and matching node
     void RemoveMatch(node* parent, node* match, bool left);
+    node* ReturnNode(int key);
+    //helper function for decontruction
+    void RemoveSubtree(node* Ptr);
 
 public:
     
     //contructor prototype
     BST();
+    //deconstructor: called when BST goes out of scope
+    ~BST();
     void AddLeaf(int key);
     void PrintInOrder();
-    node* ReturnNode(int key);
     int ReturnRootKey();
     void PrintChildren(int key);
     //create a helper function for deletion

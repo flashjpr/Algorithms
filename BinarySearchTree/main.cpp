@@ -44,7 +44,8 @@ int main(int argc, const char * argv[]) {
     
     cout << "Insert a key value to delete: Enter -1 to STOP\n";
     
-    while (input != -10) {
+    //-1 also triggers the deconstructor because the BST goes out of scope
+    while (input != -1) {
         cout << "Delete node: ";
         cin >> input;
         if (input != -1) {
