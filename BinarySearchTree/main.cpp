@@ -29,6 +29,15 @@ int main(int argc, const char * argv[]) {
     
     cout << "Outputin the tree in order\nAfter numbers have been added\n";
     tree.PrintInOrder();
+    cout << endl << endl;
+    
+//    tree.PrintChildren(tree.ReturnRootKey());
+    
+    for (int i = 0; i < 16; i++) {
+        tree.PrintChildren(SomeKeyValues[i]) ;
+        cout << endl;
+    }
+    cout << endl;
     
     return 0;
 }
