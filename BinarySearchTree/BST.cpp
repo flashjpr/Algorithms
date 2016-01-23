@@ -128,8 +128,24 @@ void BST::PrintChildren(int key){
 }
 
 
+int BST::FindSmallest(){
+    return FindSmallestPrivate(root);
+}
 
-
+int BST::FindSmallestPrivate(node* Ptr){
+    if (root == NULL) {
+        cout << "Tree is empty\n";
+        return -1;
+    }else{
+        if (Ptr -> left != NULL) {
+            //recursively call the FindSmallestPrivate function to search
+            return FindSmallestPrivate(Ptr -> left);
+        }else{
+            //found the smallest in the subtree
+            return Ptr -> key;
+        }
+    }
+}
 
 
 

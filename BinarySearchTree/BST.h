@@ -25,6 +25,8 @@ private:
     void AddLeafPrivate(int key, node* Ptr);
     void PrintInOrderPrivate(node* Ptr);
     node* ReturnNodePrivate(int key, node* Ptr);
+    int FindSmallestPrivate(node* Ptr);
+
 public:
     
     //contructor prototype
@@ -35,6 +37,9 @@ public:
     int ReturnRootKey();
     void PrintChildren(int key);
 
+    //create a helper function for deletion
+    int FindSmallest();
+    
 };
 
 #endif /* BST_h */

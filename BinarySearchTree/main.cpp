@@ -39,5 +39,7 @@ int main(int argc, const char * argv[]) {
     }
     cout << endl;
     
+    cout << "Smallest value in the tree is: " << tree.FindSmallest() << endl;
+    
     return 0;
 }
