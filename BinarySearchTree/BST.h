@@ -24,13 +24,14 @@ private:
     node* CreateLeaf(int key);
     void AddLeafPrivate(int key, node* Ptr);
     void PrintInOrderPrivate(node* Ptr);
-    
+    node* ReturnNodePrivate(int key, node* Ptr);
 public:
     
     //contructor prototype
     BST();
     void AddLeaf(int key);
     void PrintInOrder();
+    node* ReturnNode(int key);
 
 };
 
