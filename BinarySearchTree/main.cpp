@@ -15,6 +15,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 
     int SomeKeyValues[16] = {50,76,21,4,32,64,15,52,14,100,83,2,3,70,87,80};
+    int input = 0;
     
     BST tree;
     
@@ -39,7 +40,21 @@ int main(int argc, const char * argv[]) {
     }
     cout << endl;
     
-    cout << "Smallest value in the tree is: " << tree.FindSmallest() << endl;
+    cout << "Smallest value in the tree is: " << tree.FindSmallest() << endl <<endl;
+    
+    cout << "Insert a key value to delete: Enter -1 to STOP\n";
+    
+    while (input != -10) {
+        cout << "Delete node: ";
+        cin >> input;
+        if (input != -1) {
+            cout << endl;
+            tree.RemoveNode(input);
+            tree.PrintInOrder();
+            cout << endl;
+        }
+    }
+    
     
     return 0;
 }

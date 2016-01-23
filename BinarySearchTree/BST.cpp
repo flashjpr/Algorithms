@@ -170,7 +170,7 @@ void BST::RemoveNodePrivate(int key, node* parent){
                 RemoveMatch(parent, parent -> right, false):
                 //we need to move to the right
                 RemoveNodePrivate(key, parent -> right);
-            }else   cout << "Key " << key << " is not found in the tree";
+            }else   cout << "Key " << key << " is not found in the tree\n";
         }
     }else   cout << "Tree is empty\n";
 }
@@ -236,7 +236,7 @@ void BST::RemoveMatch(node* parent, node* match, bool left){
             parent -> right = NULL;
             
             delete deletePointer;
-            cout << "Node with key : " << matchKey << " has been deleted";
+            cout << "Node with key : " << matchKey << " has been deleted\n";
         }
         //case 1 - 1 child
         else if( match -> left == NULL && match -> right != NULL){
@@ -248,7 +248,7 @@ void BST::RemoveMatch(node* parent, node* match, bool left){
             match -> right = NULL;//disconnect matching node from the tree
             deletePointer =  match;
             delete deletePointer;
-            cout << "Node with key : " << matchKey << " has been deleted";
+            cout << "Node with key : " << matchKey << " has been deleted\n";
         }else if( match -> left != NULL && match -> right == NULL){
             
             left == true ?
@@ -258,7 +258,7 @@ void BST::RemoveMatch(node* parent, node* match, bool left){
             match -> left = NULL;//disconnect matching node from the tree
             deletePointer =  match;
             delete deletePointer;
-            cout << "Node with key : " << matchKey << " has been deleted";
+            cout << "Node with key : " << matchKey << " has been deleted\n";
         }
         //case 2 - 2 children
         else{
@@ -268,7 +268,7 @@ void BST::RemoveMatch(node* parent, node* match, bool left){
             match -> key = smallestInRightSubtree;
         }
     }else{
-        cout << "Can't remove match because tree is empty.";
+        cout << "Can't remove match because tree is empty.\n";
     }
 }
 
