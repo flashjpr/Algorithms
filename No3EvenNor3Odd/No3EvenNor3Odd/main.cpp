@@ -55,8 +55,7 @@ void backtrack(int n){
             }
         while(!valid(array,k) && other == 1 );
         
-        
-        if (other == 1) {
+        if (other == 1) { // if other exists
             if (k == (n - 1)) {
                 answerNumber ++;
                 print(array, k, answerNumber);
@@ -67,6 +66,7 @@ void backtrack(int n){
         } else {
             k--;
         }
+        
     } // while
 } // backtrack
 
