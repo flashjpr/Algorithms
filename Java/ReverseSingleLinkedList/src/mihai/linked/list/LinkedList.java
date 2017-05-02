@@ -1,8 +1,13 @@
 package mihai.linked.list;
 
-class LinkedList {
+public class LinkedList {
 
     private Node head;
+
+    public Node getHead() {
+        return head;
+    }
+
     private int size;
 
     void append(int data) {

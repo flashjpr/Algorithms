@@ -1,11 +1,11 @@
 package mihai.linked.list;
 
-class Node {
+public class Node {
 
-    int data;
-    Node next;
+    public int data;
+    public Node next;
 
-    Node(int data) {
+    public Node(int data) {
         this.data = data;
     }
 

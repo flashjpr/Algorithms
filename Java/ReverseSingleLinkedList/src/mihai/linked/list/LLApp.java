@@ -1,6 +1,10 @@
 package mihai.linked.list;
 
 
+import mihai.linked.list.utils.CompareLinkedLists;
+
+import java.util.Collections;
+
 public class LLApp {
 
     public static void main(String[] args) {
@@ -35,5 +39,12 @@ public class LLApp {
         System.out.println("Delete item at position 4");
         list.deleteAtPosition(4);
         list.printList();
+
+        LinkedList a = new LinkedList();
+        LinkedList b = new LinkedList();
+        System.out.println(CompareLinkedLists.CompareLists(a.getHead(),b.getHead()));
+        a.prepend(10101);
+        b.prepend(10101);
+        System.out.println(CompareLinkedLists.CompareLists(a.getHead(),b.getHead()));
     }
 }
