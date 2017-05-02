@@ -1,14 +1,11 @@
 package mihai.linked.list;
 
-/**
- * Created by flash on 29/04/2017.
- */
-public class Node {
+class Node {
 
-    public int data;
-    public Node next;
+    int data;
+    Node next;
 
-    public Node (int data) {
+    Node(int data) {
         this.data = data;
     }
 

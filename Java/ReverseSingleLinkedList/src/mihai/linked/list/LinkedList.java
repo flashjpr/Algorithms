@@ -1,11 +1,9 @@
 package mihai.linked.list;
 
-/**
- * Created by flash on 29/04/2017.
- */
-public class LinkedList {
+class LinkedList {
 
     private Node head;
+    private int size;
 
     void append(int data) {
         if (head == null) {
@@ -17,15 +15,43 @@ public class LinkedList {
         while (current.next != null)
             current = current.next;
         current.next = new Node(data);
+
+        size++;
     }
 
-    public void prepend (int data) {
+    protected void prepend(int data) {
         Node newHead = new Node(data);
         newHead.next = head;
         head = newHead;
+
+        size++;
     }
 
-    public void deleteWithValue (int data) {
+    void insertAtPosition(int data, int position) {
+        Node toAdd = new Node(data);
+
+        if (head == null) return;
+        if (position == 0) {
+            prepend(data);
+            return;
+        } else if (position > size) return;
+
+        int currentPosition = 0;
+        Node current = head;
+        Node previous = null;
+
+        while (currentPosition != position) {
+            currentPosition++;
+            previous = current;
+            current = current.next;
+        }
+        toAdd.next = current;
+        previous.next = toAdd;
+
+        size++;
+    }
+
+    void deleteWithValue(int data) {
         if (head == null) return;
         if (head.data == data) {
             head = head.next;
@@ -40,9 +66,27 @@ public class LinkedList {
             }
             current = current.next;
         }
+
+        size--;
     }
 
-    public void printList() {
+    void deleteAtPosition(int position) {
+        if (head == null || position > size - 1) return;
+        int currentPosition = 0;
+        Node current = head;
+        Node previous = null;
+
+        while (currentPosition != position) {
+            currentPosition++;
+            previous = current;
+            current = current.next;
+        }
+        if (previous != null) {
+            previous.next = current.next;
+        }
+    }
+
+    void printList() {
         Node current = head;
         while(current.next != null) {
             System.out.print(current.data + " -> ");
@@ -51,13 +95,12 @@ public class LinkedList {
         System.out.println(current.data);
     }
 
-    public void reverse() {
-
+    void reverse() {
         if (head == null) return;
 
         Node current = head;
         Node previous = null;
-        Node next = null;
+        Node next;
         while(current != null) {
             next = current.next;
             current.next = previous;
@@ -65,6 +108,10 @@ public class LinkedList {
             current = next;
         }
         head = previous;
+    }
+
+    int size() {
+        return size;
     }
 
 }
