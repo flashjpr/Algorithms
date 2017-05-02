@@ -3,7 +3,7 @@ In this repository I will add implementations of data structures and different a
 
 Data structures implemented so far:
 - implemented a hash table (C++)
-- implemented a binary search tree (C++)
+- implemented a binary search tree (C++, Java)
 - single linked list (Java)
 
 
