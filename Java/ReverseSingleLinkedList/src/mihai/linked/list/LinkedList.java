@@ -52,6 +52,9 @@ public class LinkedList {
     }
 
     public void reverse() {
+
+        if (head == null) return;
+
         Node current = head;
         Node previous = null;
         Node next = null;
