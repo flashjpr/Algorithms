@@ -1,9 +1,7 @@
 package mihai.linked.list;
 
 
-import mihai.linked.list.utils.CompareLinkedLists;
-
-import java.util.Collections;
+import mihai.linked.list.utils.LinkedListsUtils;
 
 public class LLApp {
 
@@ -42,9 +40,14 @@ public class LLApp {
 
         LinkedList a = new LinkedList();
         LinkedList b = new LinkedList();
-        System.out.println(CompareLinkedLists.CompareLists(a.getHead(),b.getHead()));
-        a.prepend(10101);
-        b.prepend(10101);
-        System.out.println(CompareLinkedLists.CompareLists(a.getHead(),b.getHead()));
+        System.out.println(LinkedListsUtils.CompareLists(a.getHead(),b.getHead()));
+        a.prepend(1);
+        b.prepend(1);
+        System.out.println(LinkedListsUtils.CompareLists(a.getHead(),b.getHead()));
+
+        a.append(2);a.append(3);
+        b.append(4);b.append(5);
+        LinkedList c = LinkedListsUtils.MergeLists(a,b);
+        c.printList();
     }
 }
