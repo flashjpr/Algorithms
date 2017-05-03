@@ -3,8 +3,6 @@ package mihai.linked.list.utils;
 import mihai.linked.list.LinkedList;
 import mihai.linked.list.Node;
 
-import java.util.List;
-
 public final class LinkedListsUtils {
 
     /*
@@ -49,5 +47,22 @@ public final class LinkedListsUtils {
         }
 
         return head;
+    }
+
+
+    /*
+     * Given a sorted linked list, remove the duplicates from it.
+     */
+    public static void RemoveDuplicates(LinkedList list) {
+        Node head = list.getHead();
+        if (head == null || head.next == null) return;
+
+        Node current = head;
+        while (current.next != null) {
+            if (current.data == current.next.data)
+                current.next = current.next.next;
+            else
+                current = current.next;
+        }
     }
 }

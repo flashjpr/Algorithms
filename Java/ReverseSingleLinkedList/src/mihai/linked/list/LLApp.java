@@ -49,5 +49,9 @@ public class LLApp {
         b.append(4);b.append(5);
         LinkedList c = LinkedListsUtils.MergeLists(a,b);
         c.printList();
+
+        System.out.println(c.elementAtPosition(6));
+        LinkedListsUtils.RemoveDuplicates(c);
+        c.printList();
     }
 }

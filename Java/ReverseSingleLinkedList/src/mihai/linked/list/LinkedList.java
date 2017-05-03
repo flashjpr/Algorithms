@@ -123,4 +123,16 @@ public class LinkedList {
         return size;
     }
 
+    int elementAtPosition(int position) {
+        if (head == null) return -1;
+        if (position > size -1) return -1;
+        Node current = head;
+        int currentPosition = 0;
+        while (currentPosition != position) {
+            currentPosition++;
+            current = current.next;
+        }
+        return current.data;
+    }
+
 }
