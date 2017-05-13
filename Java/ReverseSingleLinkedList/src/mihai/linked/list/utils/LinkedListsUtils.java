@@ -14,8 +14,8 @@ public final class LinkedListsUtils {
         if (headA == null && headB == null) return true;
         else if (headA == null || headB == null) return false;
 
-        if (headA.data == headB.data)
-            return CompareLists(headA.next, headB.next);
+        if (headA.getData() == headB.getData())
+            return CompareLists(headA.getNext(), headB.getNext());
         else
             return false;
     }
@@ -38,12 +38,12 @@ public final class LinkedListsUtils {
         if (headA == null) return headB;
         if (headB == null) return headA;
 
-        if (headA.data < headB.data) {
+        if (headA.getData().compareTo(headB.getData()) < 0 ) {
             head = headA;
-            head.next = MergeListsRecursively(headA.next, headB);
+            head.setNext(MergeListsRecursively(headA.getNext(), headB));
         } else {
             head = headB;
-            head.next = MergeListsRecursively(headA, headB.next);
+            head.setNext(MergeListsRecursively(headA, headB.getNext()));
         }
 
         return head;
@@ -55,14 +55,14 @@ public final class LinkedListsUtils {
      */
     public static void RemoveDuplicates(LinkedList list) {
         Node head = list.getHead();
-        if (head == null || head.next == null) return;
+        if (head == null || head.getNext() == null) return;
 
         Node current = head;
-        while (current.next != null) {
-            if (current.data == current.next.data)
-                current.next = current.next.next;
+        while (current.getNext() != null) {
+            if (current.getData().equals(current.getNext().getData()))
+                current.setNext(current.getNext().getNext());
             else
-                current = current.next;
+                current = current.getNext();
         }
     }
 }

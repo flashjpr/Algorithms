@@ -1,13 +1,19 @@
 package mihai.linked.list;
 
-
 import mihai.linked.list.utils.LinkedListsUtils;
+import java.util.Date;
 
 public class LLApp {
 
     public static void main(String[] args) {
 
-        LinkedList list = new LinkedList();
+        LinkedList<Integer> list = new LinkedList<>();
+        list.append(new Integer(24));
+        list.append(new Integer(23));
+        list.printList();
+        list.deleteWithValue(23);
+        list.deleteWithValue(24);
+        list.printList();
 
         System.out.println("Printed initial list: ");
         list.append(2);
